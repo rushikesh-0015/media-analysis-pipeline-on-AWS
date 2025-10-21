@@ -1,0 +1,15 @@
+{
+  "StartAt": "AnalyzeMedia",
+  "States": {
+    "AnalyzeMedia": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:region:accountid:function:AnalyzeMedia",
+      "Next": "StoreResults"
+    },
+    "StoreResults": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:region:accountid:function:StoreResults",
+      "End": true
+    }
+  }
+}
