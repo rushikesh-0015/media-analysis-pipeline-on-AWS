@@ -1,11 +1,11 @@
 # media-analysis-pipeline-on-AWS
 A fully automated serverless pipeline built on AWS for processing and analyzing media (images/videos) uploaded to an S3 bucket, orchestrating analysis with AWS Step Functions, and sending final status notifications.
 
-# 🖼️ Serverless Media Processing Workflow (S3 → Step Functions → Rekognition)
+#  Serverless Media Processing Workflow (S3 → Step Functions → Rekognition)
 
 This project implements a fully serverless, event-driven workflow on AWS for automated media (image/video) analysis. When a file is uploaded to an S3 bucket, it automatically triggers an analysis pipeline using AWS Step Functions to orchestrate AWS Lambda and Amazon Rekognition, and finally notifies a user via email using Amazon SNS.
 
-## ✨ Key Features
+##  Key Features
 
 * **Event-Driven Architecture: The workflow starts instantly upon a file upload to S3.
 * **Serverless Orchestration: AWS Step Functions manages the sequential flow of tasks.
@@ -13,7 +13,7 @@ This project implements a fully serverless, event-driven workflow on AWS for aut
 * **Decoupled Notifications: Amazon SNS handles the email delivery of the analysis results.
 * **Scalable and Cost-Effective: Uses purely serverless components (Lambda, S3, SNS, Rekognition, Step Functions).
 
-## 📐 Architecture
+##  Architecture
 
 
 
@@ -27,7 +27,7 @@ The workflow is fully serverless from the client to the back-end.
     `StoreResults` Task (Lambda): Formats the analysis results and publishes them to an SNS Topic.
 5.  SNS (`RekognitionResultsTopic`): Sends the final analysis results as an email notification to the configured subscriber.
 
-## ⚙️ Deployment and Setup
+##  Deployment and Setup
 
 This project uses seven AWS services. Follow these steps to deploy the infrastructure and logic.
 
@@ -85,13 +85,13 @@ Configure an Event Notification on the `imageuploadpipeline` S3 bucket:
 * Function:`TriggerHandler`
 * Optional Filter: Suffixes for common media types (`.jpg`, `.png`, `.mp4`).
 
-## 🚀 Testing the Workflow
+##  Testing the Workflow
 
 1.  Upload a test image (e.g., `test.jpg`) to the `imageuploadpipeline` S3 bucket.
 2.  Go to the Step Functions Console and observe a new execution of `MediaProcessingWorkflow`.
 3.  Check your email inbox for a subject line like "AWS Rekognition Analysis Result" containing the detected labels.
 
-## 📄 Code Files
+##   Code Files
 
 The core logic is contained in these files:
 
